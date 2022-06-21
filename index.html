@@ -3,18 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
-    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/brands.js"></script>
-    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/solid.js"></script>
-    <script defer src="/node_modules/@fortawesome/fontawesome-free/js/fontawesome.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>HTML5 Form</title>
 </head>
 
 <body>
-    <form class="row g-3 p-5  ">
+    <form id="myForm" class="row g-3 p-5  ">
         <header class="bg-light fw-bold form-control form-control-lg ">
             <p>Payment form example</p>
         </header>
@@ -29,42 +27,42 @@
 
         <!--CARD-CVC-Amount-->
         <div class="col-md-4">
-            <label for="inputEmail4" class="form-label">Card #</label>
-            <input type="text" placeholder="XXXXXXXXXXXX" class="form-control" id="inputCard">
+            <label for="inputCard" class="form-label">Card #</label>
+            <input type="text" placeholder="XXXXXXXXXXXX" class="form-control" id="inputCard" required pattern="[0-9]{16}" title="Sólo puedes escribir números">
         </div>
 
         <div class="col-md-3">
             <label for="inputPassword4" class="form-label">cvc #</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <input type="password" class="form-control" id="inputPassword4"  required pattern="[0-9]{3,4}" title="El formato debe coincidir con 3-4 números." name="cvc" placeholder="0000">
         </div>
 
         <div class="col-5">
             <label for="basic-url" class="form-label">Amount</label>
             <div class="input-group mb-3 ">
                 <span class="fw-bold" id="basic-addon3">$</span>
-                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                <input type="text" placeholder="Amount" class="form-control" id="basic-url" aria-describedby="basic-addon3" required pattern="[0-9]{1,5}" title="Sólo puedes escribir números" type="number">
             </div>
         </div>
         <!--First & Last Name-->
         <div class="col-6">
             <label for="firstName" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Escribe tu nombre aquí">
+            <input type="text" class="form-control" id="firstName" placeholder="Escribe tu nombre aquí" required pattern="[A-z ]{1,50}" title="Solo texto">
         </div>
 
         <div class="col-6">
             <label for="lastName" class="form-label">Apellidos</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Escribe tus apellidos aquí">
+            <input type="text" class="form-control" id="lastName" placeholder="Escribe tus apellidos aquí" required pattern="[A-z ]{1,50}" title="Solo texto">
         </div>
 
         <!--Address-->
         <div class="col-md-6">
             <label for="inputCity" class="form-label">Ciudad</label>
-            <input type="text" class="form-control" id="inputCity">
+            <input type="text" class="form-control" id="inputCity" required pattern="[A-z ]{1,50}" title="Solo texto">
         </div>
 
         <div class="col-md-3">
             <label for="inputState" class="form-label">Comunidad</label>
-            <select id="inputState" class="form-select">
+            <select id="inputState" class="form-select"  required>
                 <option selected>Elige tu comunidad autónoma</option>
                 <option>Madrid</option>
                 <option>Cataluña</option>
@@ -77,7 +75,7 @@
 
         <div class="col-md-3">
             <label for="inputZip" class="form-label">CP</label>
-            <input type="text" maxlength="5" class="form-control" id="inputZip">
+            <input type="text" maxlength="5" class="form-control" id="inputZip" required pattern="[0-9]{5}" title="Código postal no tiene que superar los 5 dígitos">
         </div>
 
         <!--PAYMENTS OPTIONS-->
@@ -89,21 +87,21 @@
                         <!--pay1-->
                         <div class="col-1 custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
-                                required="">
+                                required>
                             <label class=" rows custom-control-label" for="credit">
                                 <div><i class="fab fa-cc-visa"></i></div>
                             </label>
                         </div>
                         <!--pay2-->
                         <div class="col-1 custom-control custom-radio">
-                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" >
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required >
                             <label class="custom-control-label" for="credit">
                                 <div><i class="fab fa-cc-visa"></i></div>
                             </label>
                         </div>
                         <!--pay3-->
                         <div class="col-1 custom-control custom-radio">
-                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input">
+                            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" required>
                             <label class="custom-control-label" for="credit">
                                 <div><i class="fab fa-cc-visa"></i></div>
                             </label>
@@ -133,7 +131,18 @@
 
     <!--js de bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+
+            const myForm = document.getElementById("myForm");
+            myForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const request = new XMLHttpRequest();
+                console.log("form has been submitted");
+
+            });
+            console.log("hi");
+        </script>
 </body>
+
 </html>
